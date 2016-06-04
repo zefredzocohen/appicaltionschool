@@ -1,0 +1,60 @@
+<section class="stripe fullhomestripe">
+                                      <div class="container">
+                                          <!-- Begin Stripe stripe_container fullwidth -->
+                                          <div class="v_module v_column stripe_container fullwidth v_first">
+<style>
+.fullhomestripe.stripe{
+  padding:30px 0;
+  background:#FFF;
+  }
+</style>
+
+<div class="v_module custom_post_carousel " data-class="fullhomestripe">
+<div id="Kh__a_h___c"></div>
+<h3 class="heading"><span>Khóa học</span></h3>
+<a href="#" class="heading_more">+</a><div id="carousel978" class="vibe_carousel flexslider   more_heading" data-block-width="262" data-block-max="4" data-block-min="2">
+                <div style="overflow: hidden; position: relative;" class="flex-viewport">
+                <ul style="width: 800%; transition-duration: 0s; transform: translate3d(0px, 0px, 0px);" class="slides">
+<?php
+$list_school = $ci->core->show_all('posts', 'post_type', "school_online", "4,1", 'post_id');
+foreach ($list_school as $item):
+$meta_grsize  = $ci->core->get_post_meta($item['post_id'], "_groupsize");
+$meta_teacher = $ci->core->get_post_meta($item['post_id'], "_teacher");
+
+$info_user = $ci->core->get_info_user($meta_teacher[0]['meta_value']);
+?>
+                <li style="width: 262.5px; float: left; display: block;">
+                <div class="block courseitem">
+
+                  <div class="block_media">
+                    <a href=""></a>
+                    <a href="<?php echo $item['post_id']."-".subvn($item['post_title'])?>">
+                    <img draggable="false" src="<?php echo $item['post_image']?>" class="attachment-small wp-post-image" alt="03" width="310" height="170"></a>
+                  </div>
+
+                    <div class="block_content">
+                    <h4 class="block_title">
+                    <a href="<?php echo $item['post_id']."-".subvn($item['post_title'])?>" title="<?php echo $item['post_title']?>"><?php echo $item['post_title']?></a></h4>
+                    <div class="star-rating">
+                    <span></span><span></span><span></span><span></span><span></span>(&nbsp;&nbsp;REVIEWS&nbsp;)
+                    </div>
+                    <strong>PRIVATE</strong><span class="clear"></span>
+
+                    <div class="instructor_course">
+
+                        <div class="item-avatar">
+                        <img draggable="false" src="<?php echo $info_user[0]['user_avata']?>" class="avatar user-3-avatar avatar- photo"  width="150" height="150"></div>
+                        <h5 class="course_instructor"><a href=""><?php echo $info_user[0]['user_name']?><span></span></a>
+                        </h5>
+                        </div><strong><?php echo $meta_grsize[0]['meta_value'];?>Students</strong>
+                    </div>
+                  </div>
+               </li>
+<?php endforeach;?>
+
+
+                    </ul></div><ul class="flex-direction-nav"><li><a tabindex="-1" class="flex-prev flex-disabled" href="#"><i class="icon-arrow-1-left"></i></a></li><li><a tabindex="-1" class="flex-next flex-disabled" href="#"><i class="icon-arrow-1-right"></i></a></li></ul></div></div>
+</div>
+                                          <!-- End Stripestripe_container fullwidth -->
+                                       </div>
+                                    </section>
